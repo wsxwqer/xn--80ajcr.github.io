@@ -14,26 +14,6 @@
  </head>
  <body>
 
-  <div class="MobileToolBar">
-   <div class="MobileToolBarBox">
-    <ul>
-     <li>
-      <a href="/xn--80ajcr.github.io/html/Home.html" data-title="Дом">Home</a>
-     </li>
-     <li>
-      <a href="/xn--80ajcr.github.io/html/Products.html" data-title="Товар">Products</a>
-     </li>
-     <li>
-      <a href="/xn--80ajcr.github.io/html/Company.html" data-title="Компания">Company</a>
-     </li>
-     <li>
-      <a href="/xn--80ajcr.github.io/html/Blog.html" data-title="Дневник">Blog</a>
-     </li>
-    </ul>
-   </div>
-   <div><img src="/xn--80ajcr.github.io/img/toolbar.png" onmouseup="MobileToolBarBox(this)"/></div>
-  </div>
-
   <div class="ToolBar">
    <ul class="BoxTopMenu">
     <li>
@@ -83,40 +63,78 @@ html {
  max-height:100%;
 }
 
-.Blog {
- display:none;
- border:1px solid silver;
- margin:10px 0 10px 0;
- color:black;
- background-color:white;
+
+.table {
+ display: table;
+ width: 99%;
+ height: 100%;
+ position: relative;
+ margin: auto; 
+ min-width:240px;
 }
 
-.BackgroundBlog:after {
- font-size:1px;
- content:'.';
+.row {
+ display: table-row;
+ width: 100%;
+ height: 100%;
 }
-.BackgroundBlog {
- display:block;
- position:relative;
- top:10px;
- left:0;
- width:100%;
- height:100%;
- background-color:black;
- opacity:0.5;
+
+.cell {
+ display: table-cell;
+ width: 100%;
+ height: 100%;
+ vertical-align: middle;
+ text-align: center;
+ font-family: Nimbus Mono L, Courier, URW Palladio L, DejaVu Serif, Serif;
+}
+
+
+.content:before {
+	display: block;
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+	text-align: left;
+	content:'Северное влияние';
+	background-color: rgba(255,255,255,0.5);
+	border: 0px solid black;
+	font-weight: 600px;
+}
+
+.content {
+	display: block;
+	position: relative;
+	width: 80%;
+	box-sizing: border-box;
+	border: 0px solid black;
+	margin: auto;
+	padding: 10px;
+	background-color: rgba(255,255,255,0.5);
+}
+
+
+.content:after {
+	display: block;
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+	text-align: right;
+	content:'23.05.2017';
+	background-color: rgba(255,255,255,0.5);
+	border: 0px solid black;
+	font-weight: 100px;
 }
 
 </style>
 
-<div class="Blog">
-<div class="BackgroundBlog"></div>
-ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв 
-</div>
-<div class="Blog">
-ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв 
-</div>
-<div class="Blog">
-ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв ввввввввввв ввввввввввв вввввв 
+<div class="table">
+	<div class="row">
+		<div class="cell">
+			<div class="content">
+Тебе когда-нибудь приходилось слышать, что природа создала любовь для того, чтобы обеспечить размножение человеческого вида? Природа думает…
+			</div>
+		</div>
+	</div>
 </div>
 
  </body>
