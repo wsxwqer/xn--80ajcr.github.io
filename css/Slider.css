@@ -1,0 +1,187 @@
+.SliderButton {
+ vertical-align:middle;
+
+ display:table-cell; 
+ border:0px solid silver;
+ opacity:0.9;
+}
+
+
+.SliderLeftButton:hover, .SliderRightButton:hover {
+ transition: all 0.5s;
+ -moz-transition: all 0.5s;
+ -webkit-transition: all 0.5s;
+ -ms-transition: all 0.5s;
+ -o-transition: all 0.5s;
+
+ background-color:#3F98B3;
+ border:1px solid snow;
+}
+
+.SliderLeftButton:active, .SliderRightButton:active {
+ transform: scale(2);
+ -moz-transform: scale(2);
+ -o-transform: scale(2);
+ -webkit-transform: scale(2);
+ -ms-transform: scale(2);
+
+ background-color:#4CD4FD;
+ border:1px solid snow;
+
+}
+
+.SliderLeftButton, .SliderRightButton {
+ transition: all 0.5s;
+ -moz-transition: all 0.5s;
+ -webkit-transition: all 0.5s;
+ -ms-transition: all 0.5s;
+ -o-transition: all 0.5s;
+
+ z-index:0;
+ position:relative;
+
+ width:100%;
+ min-width:25px;
+
+ border-radius:3px;
+ border:1px solid white;
+ background-color:lightgray;
+}
+
+.SliderLeftButton {
+ float:left;
+ left:275%;
+}
+
+.SliderRightButton {
+ float:right;
+ right:275%;
+}
+
+.SliderImage {
+
+ opacity:1;
+
+ transition: all 1s, width 0.5s, opacity 0.1s;
+ -moz-transition: all 1s, width 0.5s, opacity 0.1s;
+ -webkit-transition: all 1s, width 0.1s, opacity 0.1s;
+ -ms-transition: all 1s, width 0.1s, opacity 0.1s;
+ -o-transition: all 1s, width 0.1s, opacity 0.1s;
+
+ width:99%;
+
+ border:3px double silver;
+}
+
+
+.table {
+ display: table;
+ width: 80%;
+ height: 100%;
+ position: relative;
+ margin: auto; 
+}
+
+.row {
+ display: table-row;
+ width: 100%;
+ height: 100%;
+}
+
+
+
+.cell {
+ display: table-cell;
+ width: 100%;
+ height: 100%;
+ vertical-align: middle;
+
+}
+
+.input {
+
+}
+
+.label {
+	opacity: 0.9;
+	transition: all 0.5s;
+	display: block;
+	width:45px;
+	height:45px;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position:50%;
+
+	position: absolute;
+	z-index:1px;
+	top:0px;
+	bottom:0px;
+	margin: auto 0;
+	padding:0px;
+	
+	box-sizing: border-box;
+
+	 border-radius:3px;
+	 border:1px solid white;
+	 background-color:lightgray;
+
+	cursor: pointer;
+}
+
+@media only screen and (max-width:480px) { 
+	.label {
+		width:35px;
+		height:35px;
+	}
+}
+
+.left {
+ background-image:url(/5/img/left-button-1.png);
+	left:50px;
+}
+
+.right {
+ background-image:url(/5/img/right-button-1.png);
+	right:50px;
+}
+
+
+.label:hover {
+ transition: all 0.5s;
+ -moz-transition: all 0.5s;
+ -webkit-transition: all 0.5s;
+ -ms-transition: all 0.5s;
+ -o-transition: all 0.5s;
+ background-color:#3F98B3;
+ border:1px solid snow;
+}
+
+.label:active {
+ transform: scale(2);
+ -moz-transform: scale(2);
+ -o-transform: scale(2);
+ -webkit-transform: scale(2);
+ -ms-transform: scale(2);
+ background-color:#4CD4FD;
+ border:1px solid snow;
+}
+
+
+
+/*
+.home-slider-container:after {
+
+ height:10%;
+ left:0px;
+ top:100%;
+ width:150px;
+ margin-left:60%;
+
+ content:'copyright 2016';
+ text-align:center;
+ border:0px solid silver;
+ vertical-align:bottom;
+ display:table-cell;
+ position:absolute;
+}
+*/

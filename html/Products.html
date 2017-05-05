@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf8">
+  <meta name="viewport" content="width=device-width">
+  <title>Portfolio, Products Page</title>
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  <link id="toolbar.css" rel="stylesheet" type="text/css" href="/5/css/CSS3-Toolbar.css">
+  <link rel="stylesheet" type="text/css" href="/5/css/Products.css">
+  <script src="/5/js/index.js"></script> <!--index.js всегда самый последний так-как в нём window.onload-->
+  <link rel="shortcut icon" href="/5/img/favicon.ico"/>
+ </head>
+ <body>
+
+  <div class="MobileToolBar">
+   <div class="MobileToolBarBox">
+    <ul>
+     <li>
+      <a href="/5/html/Home.html" data-title="Дом">Home</a>
+     </li>
+     <li>
+      <a href="/5/html/Products.html" data-title="Товар">Products</a>
+     </li>
+     <li>
+      <a href="/5/html/Company.html" data-title="Компания">Company</a>
+     </li>
+     <li>
+      <a href="/5/html/Blog.html" data-title="Дневник">Blog</a>
+     </li>
+    </ul>
+   </div>
+   <div><img src="/5/img/toolbar.png" onmouseup="MobileToolBarBox(this)"/></div>
+  </div>
+
+  <div class="ToolBar">
+   <ul class="BoxTopMenu">
+    <li>
+     <a href="/5/html/Home.html" data-title="Дом">Home</a>
+    </li>
+    <li>
+     <a href="/5/html/Products.html" data-title="Товар">Products</a>
+    </li>
+    <li data-title="Company">
+     <a href="/5/html/Company.html" data-title="Компания">Company</a>
+    </li>
+    <li data-title="Blog">
+     <a href="/5/html/Blog.html" data-title="Дневник">Blog</a>
+    </li>
+   </ul>
+   <div class="ToolBarButton">меню</div>
+  </div>
+
+
+
+<script language="JavaScript">
+
+function ProductResize (width) {
+ var Product = document.querySelectorAll('table[class=Product]')
+
+ function resize (width) {
+  for(index = 0; index < Product.length; index++) {
+   Product[index].style.width = width;
+   Product[index].style.height = ( Product[index].offsetWidth ) + 'px';
+//   console.log(Product[index].style.height)
+  }
+
+
+ }
+ 
+ if(document.body.clientWidth > 0 && document.body.clientWidth < 399) {
+
+   resize ('100%');
+
+/*
+  if(persent != '100') {
+   resize ('100%');
+   document.body.setAttribute('persent', '100');
+   console.log(100)
+  }
+*/
+
+ } else if(document.body.clientWidth > 400 && document.body.clientWidth < 899) {
+
+   resize ('45%');
+
+ } else if(document.body.clientWidth > 900 && document.body.clientWidth < 1979) {
+
+   resize ('30%');
+
+ } else if(document.body.clientWidth > 1980) {
+
+   resize ('20%');
+
+ } else if(document.body.clientWidth < 0) {
+
+   resize ('1%');
+
+ }
+}
+
+function getProducts () {
+
+ function products (responseText) {
+//  console.log('products: ', unescape(responseText));
+
+  if(responseText) {
+   var object = [];
+
+   unescape(responseText).split(';').forEach(function (each) {
+    var value = each.trim().split(':');
+    if(value.length == 3) object.push(value);
+   }); 
+
+/*
+<table class="Product">
+ <tr>
+  <td class="NameProductCell" data-before="Product v 2.0"></td>
+ </tr>
+ <tr>
+  <td class="PicherProductCell"><img src="/5/img/home-slider-image-2.jpg" /></td>
+ </tr>
+ <tr>
+  <td class="PriceProductCell" data-after="244.55 Money"></td>
+ </tr>
+</table>
+*/
+
+//     product += '\r\n<div class="content" data-before="'+values[0].trim()+'" data-after="'+values[2].trim()+'">\r\n\t<img src="'+values[1].trim()+'">\r\n</div>'
+
+   var product = '';
+
+   while(object.length) {
+    var values = object.shift();
+    product += '\r\n<table class="Product">\r\n<tr>\r\n<td class="NameProductCell" data-before="'+values[0].trim()+'"></td></tr>'+
+	'\r\n<tr><td class="PicherProductCell"><img src="'+values[1].trim()+'" /></td></tr>'+
+        '\r\n<tr><td class="PriceProductCell" data-after="'+values[2].trim()+'"></td></tr></table>';
+   };
+
+
+
+   return product;
+
+  } else {
+   return null;
+  }
+ };
+
+ var xhr = new XMLHttpRequest();
+ if(!xhr) {
+  try {
+   xhr = new ActiveXObject('Msxml2.XMLHTTP');
+  } catch (x) {
+   try {
+    xhr = new ActiveXObject('Microsoft.XMLHTTP');
+   } catch (y) {
+    xhr = undefined;
+   };
+  };
+ };
+ if(!xhr) return false;
+
+ xhr.onreadystatechange = function () {
+  if(xhr.readyState == 4) {
+   var product = products(xhr.responseText);
+   if(product) {
+    document.querySelector('div[class=Products]').innerHTML = product;
+    ProductResize('100%');
+   };
+  }
+ };
+
+ var query = document.querySelector('input[type=input]').value;
+
+ if(!query) query = 'product';
+
+
+ xhr.open('GET', '/system/products/?name='+query, true);
+ xhr.send();
+
+/*
+ xhr.open('POST', '/', true);
+ xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded; charset=UTF-8')
+ xhr.send('name=isName');
+*/
+};
+
+</script>
+
+
+<div class="BackgroundSubmit"></div>
+ <div class="Submit">
+  <div class="Input"><input type="input" /></div>
+  <div class="Input"><input type="submit" value="Submit Query" onmouseup="getProducts()" /></div>
+ </div>
+
+
+<div class="Products">
+
+  <div class="goods" data-before="Product v 2.1" data-after="5444,55 Money"></div>
+  <div class="goods" data-before="Product v 2.2" data-after="6545,50 Money"></div>
+  <div class="goods" data-before="Product v 2.3" data-after="7540,00 Money"></div>
+  <div class="goods" data-before="Product v 2.4" data-after="1425,55 Money"></div>
+  <div class="goods" data-before="Product v 2.5" data-after="1546,25 Money"></div>
+  <div class="goods" data-before="Product v 2.6" data-after="6548,00 Money"></div>
+  <div class="goods" data-before="Product v 2.7" data-after="7896,54 Money"></div>
+  <div class="goods" data-before="Product v 2.8" data-after="78963,45 Money"></div>
+  <div class="goods" data-before="Product v 2.9" data-after="4564,55 Money"></div>
+  <div class="goods" data-before="Product v 2.10" data-after="6548.55 Money"></div>
+  <div class="goods" data-before="Product v 2.11" data-after="2585.00 Money"></div>
+
+
+<!--
+<table class="Product">
+ <tr>
+  <td class="NameProductCell" data-before="Product v 2.0"></td>
+ </tr>
+ <tr>
+  <td class="PicherProductCell"><img src="/5/img/home-slider-image-2.jpg" /></td>
+ </tr>
+ <tr>
+  <td class="PriceProductCell" data-after="244.55 Money"></td>
+ </tr>
+</table>
+
+<table class="Product">
+ <tr>
+  <td class="NameProductCell" data-before="Product v 2.0"></td>
+ </tr>
+ <tr>
+  <td class="PicherProductCell"><img src="/5/img/home-slider-image-3.jpg" /></td>
+ </tr>
+ <tr>
+  <td class="PriceProductCell" data-after="244.55 Money"></td>
+ </tr>
+</table>
+
+<table class="Product">
+ <tr>
+  <td class="NameProductCell" data-before="Product v 2.0"></td>
+ </tr>
+ <tr>
+  <td class="PicherProductCell"><img src="/5/img/home-slider-image-0.jpg" /></td>
+ </tr>
+ <tr>
+  <td class="PriceProductCell" data-after="244.55 Money"></td>
+ </tr>
+</table>
+
+<table class="Product">
+ <tr>
+  <td class="NameProductCell" data-before="Product v 2.0"></td>
+ </tr>
+ <tr>
+  <td class="PicherProductCell"><img src="/5/img/home-slider-image-1.jpg" /></td>
+ </tr>
+ <tr>
+  <td class="PriceProductCell" data-after="244.55 Money"></td>
+ </tr>
+</table>
+
+<table class="Product">
+ <tr>
+  <td class="NameProductCell" data-before="Product v 2.0"></td>
+ </tr>
+ <tr>
+  <td class="PicherProductCell"><img src="/5/img/home-slider-image-4.jpg" /></td>
+ </tr>
+ <tr>
+  <td class="PriceProductCell" data-after="244.55 Money"></td>
+ </tr>
+</table>
+
+<table class="Product">
+ <tr>
+  <td class="NameProductCell" data-before="Product v 2.0"></td>
+ </tr>
+ <tr>
+  <td class="PicherProductCell"><img src="/5/img/bigbox.jpg" /></td>
+ </tr>
+ <tr>
+  <td class="PriceProductCell" data-after="244.55 Money"></td>
+ </tr>
+</table>
+-->
+
+</div>
+
+
+<!--
+  <div class="container">
+
+   <div class="products-submit"><div><input type="input" /></div><div><input type="submit" onmouseup="getProducts()" /></div></div>
+
+    <div class="content">
+    <img src="/5/img/bigbox.jpg">
+   </div>
+
+   <div class="content">
+    <img src="/5/img/bigbox.jpg">
+   </div>
+
+   <div class="content">
+    <img src="/5/img/bigbox.jpg">
+   </div>
+  </div>
+
+  <div class="floorBox">
+   <div class="floor">floor information asdf</div>
+  </div>
+
+-->
+
+
+
+
+ </body>
+
+</html>
+

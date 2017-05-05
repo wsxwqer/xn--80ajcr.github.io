@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf8"> <!--ubiquitous-->
+  <meta name="viewport" content="width=device-width">
+  <meta name='yandex-verification' content='7c7cdc5d1944659c' />
+  <title>Portfolio, Home Page</title>
+<!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+  <link id="toolbar.css" rel="stylesheet" type="text/css" href="/5/css/CSS3-Toolbar.css">
+  <link id="home-slider-image" rel="stylesheet" type="text/css" href="/5/css/Slider.css">
+  <script src="/5/js/index.js"></script> <!--index.js всегда самый последний так-как в нём window.onload-->
+  <link rel="shortcut icon" href="/5/img/favicon.ico"/>
+ </head>
+ <body>
+
+<!--
+  <div class="MobileToolBar">
+   <div class="MobileToolBarBox">
+    <ul>
+     <li>
+      <a href="/5/html/Home.html" data-title="Дом">Home</a>
+     </li>
+     <li>
+      <a href="/5/html/Products.html" data-title="Товар">Products</a>
+     </li>
+     <li>
+      <a href="/5/html/Company.html" data-title="Компания">Company</a>
+     </li>
+     <li>
+      <a href="/5/html/Blog.html" data-title="Дневник">Blog</a>
+     </li>
+    </ul>
+   </div>
+   <div><img src="/5/img/toolbar.png" onmouseup="MobileToolBarBox(this)"/></div>
+  </div>SliderButton
+-->
+
+  <div class="ToolBar">
+   <ul class="BoxTopMenu">
+    <li>
+     <a href="/5/html/Home.html" data-title="Дом">Home</a>
+    </li>
+    <li>
+     <a href="/5/html/Products.html" data-title="Товар">Products</a>
+    </li>
+    <li data-title="Company">
+     <a href="/5/html/Company.html" data-title="Компания">Company</a>
+    </li>
+    <li data-title="Blog">
+     <a href="/5/html/Blog.html" data-title="Дневник">Blog</a>
+    </li>
+   </ul>
+   <div class="ToolBarButton">меню</div>
+  </div>
+
+
+<style type="text/css">
+
+body {
+
+
+ width:100%;
+ height:100%;
+ min-height:100%;
+
+ margin:0px;
+ padding:0px;
+
+	-ms-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+
+}
+
+html {
+ height:100%;
+ max-height:100%;
+}
+
+/*
+.floorBox {
+ color:dimgray;
+ position:absolute;
+ bottom:0%;
+ right:0%;
+ display:table;
+ width:30%;
+ min-width:150px;
+ border:0px solid silver;
+}
+
+.floor {
+ border:0px solid silver;
+ display:table-cell;
+ text-align:center;
+ vertical-align:middle;
+
+ padding:9px;
+ height:30px;
+}
+*/
+
+..content:after {
+ font-size:0.8em;
+ top:-25px;
+ left:56px;
+ position:relative;
+ background-color:black;
+ opacity:0.5;
+ content:attr(alt-data);
+ border:1px solid white;
+ padding:15px;
+ color:white;
+}
+
+</style>
+
+<script language="JavaScript" type="text/javascript">
+
+function setStyle(iStyleGeven) {
+ image = document.querySelector("img[class=SliderImage]");
+
+ for(index in iStyleGeven) { continue;
+  image.style[index] = iStyleGeven[index];
+ }
+
+ if(iStyleGeven.event && iStyleGeven.event.type == 'load') {
+//  iStyleGeven.event.target.style.display = 'block';
+ }
+
+}
+
+function SliderImage (fororbackward) {
+ var imageContentBox = document.querySelector("div[class=cell]");
+ var mark = imageContentBox.getAttribute('__mark');
+ if(!mark) mark = 0;
+ mark = parseInt(mark) + fororbackward;
+
+ if(mark < 0) mark = 4;
+ if(mark > 4) mark = 0;
+
+ imageContentBox.setAttribute('__mark', mark);
+
+// while(imageContentBox.childNodes.length) imageContentBox.removeChild(imageContentBox.childNodes[0]);
+
+ image = document.querySelector("img[class=SliderImage]");
+ image.setAttribute('src', '/5/img/home-slider-image-'+mark+'.jpg');
+/// image.style.display = 'none';
+
+// imageContentBox.appendChild(image);
+
+ return false;
+
+}
+
+</script>
+
+ <div class="table">
+  <div class="row">
+		<div class="cell">
+			<label class="label left" onmouseup="SliderImage (-1);"></label>
+		 <div class="content" alt-data="Виртуальная Бабочка">
+		   <img src="/5/img/home-slider-image-0.jpg" class="SliderImage" alt="alt" onload=""><!--setStyle({opacity:'1', event:event})-->
+	<!-- <div class="ImageDescription">descript</div>-->
+		 </div>
+			<label class="label right" onmouseup="SliderImage (+1);"></label>
+		</div>
+  </div>
+ </div>
+
+<!--
+  <div class="floorBox">
+   <div class="floor">copyright 2016</div>
+  </div>
+-->
+
+ </body>
+
+</html>
