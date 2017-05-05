@@ -8,10 +8,10 @@
 <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-  <link id="toolbar.css" rel="stylesheet" type="text/css" href="/5/css/CSS3-Toolbar.css">
-  <link id="home-slider-image" rel="stylesheet" type="text/css" href="/5/css/Slider.css">
-  <script src="/5/js/index.js"></script> <!--index.js всегда самый последний так-как в нём window.onload-->
-  <link rel="shortcut icon" href="/5/img/favicon.ico"/>
+  <link id="toolbar.css" rel="stylesheet" type="text/css" href="/css/CSS3-Toolbar.css">
+  <link id="home-slider-image" rel="stylesheet" type="text/css" href="/css/Slider.css">
+  <script src="/js/index.js"></script> <!--index.js всегда самый последний так-как в нём window.onload-->
+  <link rel="shortcut icon" href="/img/favicon.ico"/>
  </head>
  <body>
 
@@ -20,36 +20,36 @@
    <div class="MobileToolBarBox">
     <ul>
      <li>
-      <a href="/5/html/Home.html" data-title="Дом">Home</a>
+      <a href="/html/Home.html" data-title="Дом">Home</a>
      </li>
      <li>
-      <a href="/5/html/Products.html" data-title="Товар">Products</a>
+      <a href="/html/Products.html" data-title="Товар">Products</a>
      </li>
      <li>
-      <a href="/5/html/Company.html" data-title="Компания">Company</a>
+      <a href="5/html/Company.html" data-title="Компания">Company</a>
      </li>
      <li>
-      <a href="/5/html/Blog.html" data-title="Дневник">Blog</a>
+      <a href="5/html/Blog.html" data-title="Дневник">Blog</a>
      </li>
     </ul>
    </div>
-   <div><img src="/5/img/toolbar.png" onmouseup="MobileToolBarBox(this)"/></div>
+   <div><img src="5/img/toolbar.png" onmouseup="MobileToolBarBox(this)"/></div>
   </div>SliderButton
 -->
 
   <div class="ToolBar">
    <ul class="BoxTopMenu">
     <li>
-     <a href="/5/html/Home.html" data-title="Дом">Home</a>
+     <a href="/html/Home.html" data-title="Дом">Home</a>
     </li>
     <li>
-     <a href="/5/html/Products.html" data-title="Товар">Products</a>
+     <a href="/html/Products.html" data-title="Товар">Products</a>
     </li>
     <li data-title="Company">
-     <a href="/5/html/Company.html" data-title="Компания">Company</a>
+     <a href="5/html/Company.html" data-title="Компания">Company</a>
     </li>
     <li data-title="Blog">
-     <a href="/5/html/Blog.html" data-title="Дневник">Blog</a>
+     <a href="5/html/Blog.html" data-title="Дневник">Blog</a>
     </li>
    </ul>
    <div class="ToolBarButton">меню</div>
@@ -147,7 +147,7 @@ function SliderImage (fororbackward) {
 // while(imageContentBox.childNodes.length) imageContentBox.removeChild(imageContentBox.childNodes[0]);
 
  image = document.querySelector("img[class=SliderImage]");
- image.setAttribute('src', '/5/img/home-slider-image-'+mark+'.jpg');
+ image.setAttribute('src', '/img/home-slider-image-'+mark+'.jpg');
 /// image.style.display = 'none';
 
 // imageContentBox.appendChild(image);
@@ -163,7 +163,7 @@ function SliderImage (fororbackward) {
 		<div class="cell">
 			<label class="label left" onmouseup="SliderImage (-1);"></label>
 		 <div class="content" alt-data="Виртуальная Бабочка">
-		   <img src="/5/img/home-slider-image-0.jpg" class="SliderImage" alt="alt" onload=""><!--setStyle({opacity:'1', event:event})-->
+		   <img src="/img/home-slider-image-0.jpg" class="SliderImage" alt="alt" onload=""><!--setStyle({opacity:'1', event:event})-->
 	<!-- <div class="ImageDescription">descript</div>-->
 		 </div>
 			<label class="label right" onmouseup="SliderImage (+1);"></label>
